@@ -1,24 +1,66 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import FlashcardList from './components/FlashcardList';
+import {LISTA_FISZEK} from './components/FlashcardArray'
+import './app.css';
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+  let unLearnedArray=LISTA_FISZEK;
+  const someFlashcard = generateRandomUnlearnedFlashcard(unLearnedArray);
+
+  const [flashcards, setFlashcards] = useState(someFlashcard)
+  
+
+  function generateRandomUnlearnedFlashcard(array){
+
+    unLearnedArray = array.filter(element => element.learned === false)    
+    let randomFlashcard = unLearnedArray[Math.floor(Math.random()*unLearnedArray.length)];    
+    return randomFlashcard
+  }
+  
+  function handleLearned(array){    
+     
+    let flashcard = flashcards;
+    flashcard.learned = true;
+    setFlashcards(()=>generateRandomUnlearnedFlashcard(array))  
+  }
+
+
+  function handleNotLearned(){
+    setFlashcards(flashcards => generateRandomUnlearnedFlashcard(LISTA_FISZEK)
+    );      
+  }
+
+  function resetGame(){  
+      
+    LISTA_FISZEK.forEach(element => element.learned = false)
+    console.log(unLearnedArray)
+    setFlashcards(flashcards => generateRandomUnlearnedFlashcard(LISTA_FISZEK))    
+  }
+   
+
+  return(
+    <>
+      <div className="container">
+        <h1>Fiszki transportowe po niemiecku</h1>     
+        <div>{LISTA_FISZEK.length} fiszek w puli</div>
+        <div>{LISTA_FISZEK.length-unLearnedArray.length} fiszek nauczonych</div>
+        {unLearnedArray.length <1 ?
+          <>
+            <div>to juz jest koniec</div>
+            <button onClick={resetGame}>zresetuj</button>
+          </>
+          :
+        <>
+            <FlashcardList flashcards ={flashcards}/>
+            <button onClick={()=>handleLearned(unLearnedArray)}>umiem</button>
+            <button onClick={handleNotLearned} >nie umiem</button>
+        </>
+        }  
+        
+      </div>
+    </>
   );
 }
 
