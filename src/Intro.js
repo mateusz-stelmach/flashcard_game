@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import {Link } from 'react-router-dom'
 import { LISTA_FISZEK } from './components/FlashcardArray';
+import './intro.css';
 
 
 function Intro() {

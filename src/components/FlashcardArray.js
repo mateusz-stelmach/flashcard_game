@@ -391,7 +391,7 @@ export const LISTA_FISZEK = [
     },
     {
       id:68,
-      question: 'odzieź',
+      question: 'odzież',
       answer: 'die Kleidung',
       learned: false
     },
@@ -901,7 +901,7 @@ export const LISTA_FISZEK = [
     },
     {
       id:148,
-      question: 'zaczewolnopić',
+      question: 'wolno / powoli',
       answer: 'langsam',
       learned: false
     },
@@ -1000,15 +1000,9 @@ export const LISTA_FISZEK = [
       question: 'przegląd techniczny auta',
       answer: 'TÜV / Begutachtung',
       learned: false
-    },
+    },    
     {
       id:165,
-      question: 'przegląd techniczny auta',
-      answer: 'TÜV',
-      learned: false
-    },
-    {
-      id:166,
       question: 'nie opłaca się',
       answer: 'es lohnt sich nicht',
       learned: false

@@ -1,0 +1,42 @@
+:root {
+  --base-color: #feeafa;
+  --second-color: #efd3d7;
+  --opt-color: #dee2ff;
+  --sec-opt-color: #cbc0d3;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 10rem auto;
+}
+
+form label {
+  font-size: 2rem;
+  margin: 1.5rem 1rem;
+  font-weight: 900;
+}
+
+select {
+  width: 70px;
+  height: 30px;
+  border: none;
+  font-size: 1.5rem;
+  margin: 0 1rem;
+  border-radius: 5px;
+  background-color: var(--second-color);
+}
+
+input[type="submit"] {
+  display: inline;
+  width: 150px;
+  height: 30px;
+  background-color: var(--sec-opt-color);
+  border: 0px solid var(--sec-opt-color);
+  border-radius: 5px;
+  margin: 10px 10px;
+  cursor: pointer;
+  text-decoration: none;
+}

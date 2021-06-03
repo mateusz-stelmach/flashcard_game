@@ -1,11 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;900&display=swap");
+
+:root {
+  --base-color: #feeafa;
+  --second-color: #efd3d7;
+  --opt-color: #dee2ff;
+  --sec-opt-color: #cbc0d3;
+}
+
 body {
+  font-family: "Roboto", sans-serif;
   margin: 0;
-  background: rgb(255, 176, 186);
-  background: radial-gradient(
-    circle,
-    rgba(255, 176, 186, 0.8) 0%,
-    rgba(255, 255, 255, 1) 50%
-  );
+  background: var(--opt-color);
 }
 
 .container {
@@ -14,16 +19,18 @@ body {
   align-items: center;
   justify-items: center;
   max-width: 900px;
-  margin: 4rem auto;
+  max-height: 100vh;
+  margin: 3rem auto;
 }
 
 .container > div {
-  margin: 0.5rem auto;
+  margin: 0.3rem auto;
 }
 
 h1 {
   font-size: 2rem;
-  margin: 3rem 1rem;
+  margin: 1.5rem 1rem;
+  font-weight: 900;
 }
 
 .card-grid {
@@ -39,24 +46,30 @@ h1 {
   align-items: center;
   position: relative;
   border-radius: 0.5rem;
-  background-color: rgba(184, 120, 0, 0.404);
+  background-color: var(--second-color);
   transform-style: preserve-3d;
   transition: 190ms;
   transform: perspective(1000px) rotateY(var(--rotate-y, 0))
     translateY(var(--trasnlate-y, 0));
   cursor: pointer;
-  height: 150px;
-  width: 300px;
-  font-size: 1.5rem;
+  height: 200px;
+  width: 350px;
+  font-size: 1.8rem;
 }
 
 button {
-  display: inline;
-  width: 100px;
-  background-color: red;
-  border: 0px solid red;
+  display: block;
+  width: 150px;
+  height: 30px;
+  background-color: var(--sec-opt-color);
+  border: 0px solid var(--sec-opt-color);
+  border-radius: 5px;
   margin: 10px 10px;
   cursor: pointer;
+}
+
+button a {
+  text-decoration: none;
 }
 
 .card:hover {
@@ -71,7 +84,7 @@ button {
 .card .back {
   position: absolute;
   padding: 1rem;
-  backface-visibility: hidden;  
+  backface-visibility: hidden;
 }
 
 .card .back {
